@@ -19,7 +19,7 @@ class ListRecipeSerializer(serializers.ModelSerializer):
 
     @staticmethod
     def get_ingredients(obj):
-        ingredients = Ingredient.objects.filter(recipe=obj.id).distinct()
+        ingredients = Ingredient.objects.filter(recipe=obj.id)
         return IngredientSerializer(ingredients, many=True).data
 
 
